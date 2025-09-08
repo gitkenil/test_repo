@@ -4,12 +4,6 @@ FIXED DOCUMENTATION MANAGER - COMPLETE VERSION
 Complete documentation_manager.py with all missing methods and proper error handling
 """
 
-import json
-from datetime import datetime
-from typing import Dict, Any, List, Optional
-from pathlib import Path
-import logging
-
 logger = logging.getLogger(__name__)
 
 class DocumentationManager:

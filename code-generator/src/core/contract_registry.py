@@ -4,13 +4,6 @@ CORE COMPONENT: API Contract Registry
 Central contract management for cross-handler communication
 """
 
-import json
-import uuid
-from datetime import datetime
-from typing import Dict, Any, List, Optional, Set
-from dataclasses import dataclass, asdict
-from pathlib import Path
-import logging
 
 logger = logging.getLogger(__name__)
 
