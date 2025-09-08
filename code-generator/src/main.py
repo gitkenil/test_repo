@@ -1,3 +1,28 @@
+import os
+import sys
+import json
+import uuid
+import time
+import asyncio
+from datetime import datetime
+from typing import Dict, Any, List, Optional
+from pathlib import Path
+
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+import uvicorn
+from loguru import logger
+
+from src.core.contract_registry import APIContractRegistry
+from src.core.event_bus import HandlerEventBus
+from src.core.quality_coordinator import QualityCoordinator
+from src.core.documentation_manager import DocumentationManager
+from src.handlers.react_handler import ReactHandler
+from src.handlers.node_handler import NodeHandler
+
+from fastapi.responses import StreamingResponse
+from datetime import datetime
 
 # Configure logging for pipeline
 logger.remove()
@@ -10,7 +35,14 @@ app = FastAPI(
     version="3.0.0"
 )
 
-
+# CORS middleware for n8n workflow
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Service health status
 service_health = {
