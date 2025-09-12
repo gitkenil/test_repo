@@ -3,7 +3,7 @@ CORE COMPONENT: Handler Event Bus
 =================================
 Event-driven communication between handlers
 """
-shikhardhawan shikharprakash12345
+shikhardhawan12345 shikharprakash12345
 import asyncio
 import json
 import uuid
